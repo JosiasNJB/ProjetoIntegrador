@@ -1,0 +1,118 @@
+*{
+
+margin:0;
+padding:0;
+box-sizing: border-box;
+font-family: Verdana, Geneva, Thoma, sans-serif;
+}
+
+footer {background-color: #A6C396;
+	min-height: 50px;
+	margin-top: auto;
+}
+
+	/* Parte 1.14. da PRIMEIRA especificacao */
+
+header {background-color:  #a3c4a1;
+
+	display:flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 30px;
+	min-height:50px; 
+
+}
+
+body {
+	background-color: white;
+	height: 100vh;
+	display:flex;
+	flex-direction:column;
+	} 
+
+	/* Parte 1.16. da PRIMEIRA especificacao */
+
+ul,li {
+
+	list-style: none;
+	font-size: 1.2rem;
+}
+
+	/* Parte 1.17. da PRIMEIRA especificacao */
+
+a{
+	text-decoration: none;
+	color: black;
+}
+
+.menu{
+	display: flex;
+}
+.menu li{
+	margin-left:20px;
+}
+.menu li a{
+	padding: 5 px;
+}
+
+	/* Parte 1.16. da PRIMEIRA especificacao */
+div {
+	display: flex;
+	justify-content: center;
+}
+  
+img.container {
+	width: 60%;
+}
+
+/* TEXT-ALIGN */
+h1, h2, h4, h5, h6 {
+	font-family: 'Merriweather', serif;
+	text-align: center;
+}
+
+h3 {
+    width: 700px; 
+    margin-left: auto;
+    margin-right: auto; 
+}
+
+h6 {
+	font-family: 'Merriweather', serif;
+	text-align: justify;
+}
+
+p {
+    width: 700px; 
+    margin-left: auto;
+    margin-right: auto; 
+}
+
+img.pintura1 {
+	object-fit: cover;  
+	width: 1350px;
+	height: 400px;
+}
+
+img.pintura2 {
+	object-fit: cover;  
+	width: 1350px;
+	height: 400px;
+}
+
+img.star {
+	object-fit: cover;  
+	width: 1350px;
+	height: 400px;
+}
+
+img.borba {
+	object-fit: cover;  
+	width: 700px;
+	height: 500px;
+}
+
+img.teste {
+	width: 150px;
+	display: inline-block;
+}
