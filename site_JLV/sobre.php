@@ -33,7 +33,7 @@
 		<br>
 		<figure>
 			<div class="container">
-			<a href="#"><img class="anon" src="img/anon.png" alt="anon"></a>
+			<a href="#"><img class="anonGrey" src="img/anonGrey.png" alt="anon"></a>
 		</figure>
 
 		<h1>Quem Somos</h1>
@@ -87,16 +87,17 @@
 		<p>
 			"A anarquia ostenta duas faces. A de Destruidores e a de Criadores. 
 			Os Destruidores derrubam impérios, e com os destroços, os Criadores erguem Mundos Melhores."
-
+		<!--
 		<iframe width="700" height="400" src="https://www.youtube.com/embed/I8IahXqAb9o" 
 		title="YouTube video player" frameborder="0" 
 		allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
+		-->
 		</p>
 
+		<br>
+		<br>
+		<br>
 		</section>
-
-		
 
 		<!-- A tag <footer> é utilizada para definir o rodapé do documento.-->
 		<footer>Todos os direitos reservados</footer>
