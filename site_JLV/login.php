@@ -37,15 +37,19 @@
 					else{
 					
 
-						//cryptographing the password
+						//Cryptografando a senha
 						$senha = md5($senha);
 
-						//sql query as a string
+						//Query de sql como uma string
 						$sql = "SELECT email, senha from user where email = '$email' and senha = '$senha' ";
 						
 						/* method is returning, from inside of the table represented by the variable "$connect",
 						an array that contains all of the results that meet the requirements of the query
 						inside of "$sql".
+
+						está retornando, de dentro da tabela representada pela variável "$connect",
+						um array que contém todos os resultados que atendem aos requisitos da consulta
+						dentro de "$sql".
 						*/
 						$resultado = mysqli_query($connect, $sql);
 
@@ -56,6 +60,11 @@
 						"$dados" will fetch an array containing the data from the index,
 						then it saves a boolean that says the user is logged in
 						as well as saves the user's id.
+
+						se o array que contém os resultados da consulta tiver pelo menos 1 index,
+						"$dados" irá buscar um array contendo os dados do index,
+						então ele salva um boolean que diz que o usuário está logado
+						e salva o id do usuário.
 						*/
 						if (mysqli_num_rows($resultado) > 0){
 							$dados = mysqli_fetch_array($resultado);
