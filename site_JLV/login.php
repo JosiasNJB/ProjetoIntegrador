@@ -17,17 +17,16 @@
 
 				$erros = array();
 
+				//isset determina que os campos do formulario nao sao nulos	
 				if(isset($_REQUEST['email']) && isset($_REQUEST['senha'])){
 
 					$em = $_REQUEST['email'];
 					$sen = $_REQUEST['senha'];
 
-					echo $em;
-					echo $sen;
-
 					//mysqli_escape_string - função que limpa os dados e evita sqlinjection e outros caracteres indevidos.
 					$email = mysqli_escape_string($connect, $em);
-					$senha = mysqli_escape_string($connect, $sen);
+					//Cryptografando a senha
+					$senha = md5(mysqli_escape_string($connect, $sen));
 
 					if(empty($email) or empty($senha)){
 						
@@ -35,19 +34,11 @@
 					}
 
 					else{
-					
-
-						//Cryptografando a senha
-						$senha = md5($senha);
 
 						//Query de sql como uma string
 						$sql = "SELECT email, senha from user where email = '$email' and senha = '$senha' ";
 						
-						/* method is returning, from inside of the table represented by the variable "$connect",
-						an array that contains all of the results that meet the requirements of the query
-						inside of "$sql".
-
-						está retornando, de dentro da tabela representada pela variável "$connect",
+						/* Está retornando, de dentro da tabela representada pela variável "$connect",
 						um array que contém todos os resultados que atendem aos requisitos da consulta
 						dentro de "$sql".
 						*/
@@ -56,12 +47,7 @@
 						mysqli_close($connect);
 
 
-						/* if the array containing the query results has at least 1 index,
-						"$dados" will fetch an array containing the data from the index,
-						then it saves a boolean that says the user is logged in
-						as well as saves the user's id.
-
-						se o array que contém os resultados da consulta tiver pelo menos 1 index,
+						/* Se o array que contém os resultados da consulta tiver pelo menos 1 index,
 						"$dados" irá buscar um array contendo os dados do index,
 						então ele salva um boolean que diz que o usuário está logado
 						e salva o id do usuário.
