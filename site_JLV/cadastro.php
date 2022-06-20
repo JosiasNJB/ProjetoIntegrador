@@ -55,7 +55,7 @@
 			</div>
         </header>
 
-        <h3> Pagina de Cadastro</h3>
+        <h3>Cadastro</h3>
 
         <section>
 			<!-- a tag <form> possibilita o uso de formularios -->
@@ -67,11 +67,6 @@
 					<div class="input-field col s6">
 						<input id="nome" type="text" class="validate" name="nome">
 						<label for="nome">Nome</label>
-					</div>
-
-					<div class="input-field col s6">
-						<input id="sobrenome" type="text" class="validate" name="sobrenome">
-						<label for="sobrenome">Sobrenome</label>
 					</div>
 
 					<div class="input-field col s6">
@@ -139,6 +134,8 @@
 				<br>
 
 			</form>
+
+
 		</section>
 
         <!-- A tag <footer> é utilizada para definir o rodapé do documento.-->

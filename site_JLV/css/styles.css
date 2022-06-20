@@ -6,7 +6,7 @@
 	color: white;
 	}
 	
-	footer {background-color: #A6C396;
+	footer {background-color: blueviolet;
 		min-height: 50px;
 		margin-top: auto;
 	}
@@ -75,6 +75,7 @@
 		width: 700px; 
 		margin-left: auto;
 		margin-right: auto; 
+		text-align: center;
 	}
 	
 	h6 {
@@ -115,4 +116,8 @@
 	img.teste {
 		width: 150px;
 		display: inline-block;
+	}
+
+	.carousel-inner {
+		background-color: black;
 	}
