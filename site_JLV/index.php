@@ -30,6 +30,7 @@
 				<li><a href="login.php">Login</a></li>
 				<li><a href="contato.php">Contato</a></li>
 				<li><a href="depoimentos.php">Depoimentos</a></li>
+				<li><a href="usuarios.php">Usuarios</a></li>
 			</div>
 			
 		</header>
