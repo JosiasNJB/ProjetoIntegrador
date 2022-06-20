@@ -9,18 +9,12 @@
 
     </head>
     <body>
-        <div class="menu">
-			<li><a href="index.php">Home</a></li>
-			<li><a href="sobre.php">Sobre</a></li>
-			<li><a href="login.php">Login</a></li>
-			<li><a href="contato.php">Contato</a></li>
-			<li><a href="depoimentos.php">Depoimentos</a></li>
-			<li><a href="usuarios.php">Usuarios</a></li>
-		</div>
+        <?php include_once 'header.php';?>
+
+        <h3 class="light"> Usuários </h3>
 
         <div class="row">
-            <div class="col s12 m6 push-m3 ">
-                <h3 class="light"> Usuários </h3>
+            <div>
                 <table class="striped">
                     <thead>
                         <tr>
@@ -72,5 +66,8 @@
                 </table>                    
             </div>                     
         </div>
+
+        <?php include_once 'footer.php';?>                        
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     </body>
 </html>

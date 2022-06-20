@@ -121,3 +121,8 @@
 	.carousel-inner {
 		background-color: black;
 	}
+
+	table {
+		margin-left: auto;
+		margin-right: auto;
+	}

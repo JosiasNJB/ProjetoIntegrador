@@ -40,20 +40,8 @@
 
     </head>
     <body>
-        <header>
-            <figure>
-				<a href="index.html"><img src="img/icons8-forest-30.png" alt="Yby"></a>
-				<td> Yby </td> 
-			</figure> 
-			
-			<div class="menu">
-				<li><a href="index.php">Home</a></li>
-				<li><a href="sobre.php">Sobre</a></li>
-				<li><a href="login.php">Login</a></li>
-				<li><a href="contato.php">Contato</a></li>
-				<li><a href="depoimentos.php">Depoimentos</a></li>
-			</div>
-        </header>
+
+		<?php include_once 'header.php';?>
 
         <h3>Cadastro</h3>
 
@@ -138,8 +126,7 @@
 
 		</section>
 
-        <!-- A tag <footer> é utilizada para definir o rodapé do documento.-->
-        <footer>Todos os direitos reservados</footer>
+		<?php include_once 'footer.php';?>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     </body>
 </html>

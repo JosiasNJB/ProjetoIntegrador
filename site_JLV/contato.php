@@ -11,23 +11,7 @@
 	
 	<body>
 
-		<header>
-
-			<!-- A tag <figure> serve para marcar diagramas, ilustrações, fotos, e fragmentos de código.-->
-			<figure>
-				<a href="index.html"><img src="img/icons8-forest-30.png" alt="Yby"></a>
-				<td> Yby </td> 
-			</figure> 
-
-			<div class="menu">
-				<li><a href="index.php">Home</a></li>
-				<li><a href="sobre.php">Sobre</a></li>
-				<li><a href="login.php">Login</a></li>
-				<li><a href="contato.php">Contato</a></li>
-				<li><a href="depoimentos.php">Depoimentos</a></li>
-			</div>
-			
-		</header>
+		<?php include_once 'header.php';?>
 		
 		<!-- A tag <section> para marcar as seções de conteúdo de uma página.-->
 		<section>
@@ -87,8 +71,7 @@
 			<p>Encontre mais informações aqui: https://ifes.edu.br/noticias/2-uncategorised/19345-contatos-dos-neabi-no-ifes</p>
 		</section>
 
-		<!-- A tag <footer> é utilizada para definir o rodapé do documento.-->
-		<footer>Todos os direitos reservados</footer>
+		<?php include_once 'footer.php';?>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>	
 	</body>
 </html>

@@ -9,31 +9,12 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 		<link rel="stylesheet" type="text/css" href="css/styles.css">
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 	</head>
 	
 	<!-- A tag <body> é basicamente o corpo do nosso documento.-->
 	<body>
-		
-		<!-- A tag <header> é o nosso cabeçalho, mas dessa vez aparecerá.-->
-		<header>
+		<?php include_once 'header.php';?>
 
-			<!-- A tag <figure> serve para marcar diagramas, ilustrações, fotos, e fragmentos de código.-->
-			<figure>
-				<a href="index.php"><img src="img/icons8-forest-30.png" alt="Yby"></a>
-				<td> Yby </td> 
-			</figure> 
-			
-			<div class="menu">
-				<li><a href="index.php">Home</a></li>
-				<li><a href="sobre.php">Sobre</a></li>
-				<li><a href="login.php">Login</a></li>
-				<li><a href="contato.php">Contato</a></li>
-				<li><a href="depoimentos.php">Depoimentos</a></li>
-				<li><a href="usuarios.php">Usuarios</a></li>
-			</div>
-			
-		</header>
 		<!-- A tag <section> para marcar as seções de conteúdo de uma página.-->
 		<section>
 
@@ -64,6 +45,6 @@
 		</section>
 		
 		<!-- A tag <footer> é utilizada para definir o rodapé do documento.-->
-		<footer>Todos os direitos reservados</footer>
+		<?php include_once 'footer.php';?>
 	</body>
 </html>

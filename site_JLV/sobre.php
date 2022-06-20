@@ -10,25 +10,8 @@
 	</head>
 	
 	<body>
-		<header>
-			<!--Imagens por Ben-Andrews, disponíveis em seu perfil no DeviantArt.-->
 
-			<figure>
-				<a href="index.html"><img src="img/icons8-forest-30.png" alt="Yby"></a>
-				<td> Yby </td> 
-			</figure> 
-
-			<!-- Em sumo, a tag <div> é utilizada para marcar uma divisão ou seção dentro do documento.-->
-			<div class="menu">
-				<li><a href="index.php">Home</a></li>
-				<li><a href="sobre.php">Sobre</a></li>
-				<li><a href="login.php">Login</a></li>
-				<li><a href="contato.php">Contato</a></li>
-				<li><a href="depoimentos.php">Depoimentos</a></li>
-			</div>
-			
-		</header>
-
+		<?php include_once 'header.php';?>
 		<br>
 		<br>
 		<figure>
@@ -99,7 +82,6 @@
 		<br>
 		</section>
 
-		<!-- A tag <footer> é utilizada para definir o rodapé do documento.-->
-		<footer>Todos os direitos reservados</footer>
+		<?php include_once 'footer.php';?>
 	</body>
 </html>
