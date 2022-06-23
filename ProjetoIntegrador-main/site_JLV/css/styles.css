@@ -11,7 +11,7 @@
 		margin-top: auto;
 	}
 	
-		/* Parte 1.14. da PRIMEIRA especificacao */
+		/* Parte 1.14. da PRIMEIRA especificação */
 	
 	header {background-color:  #a3c4a1;
 	
@@ -30,7 +30,7 @@
 		flex-direction:column;
 		} 
 	
-		/* Parte 1.16. da PRIMEIRA especificacao */
+		/* Parte 1.16. da PRIMEIRA especificação */
 	
 	ul,li {
 	
@@ -38,7 +38,7 @@
 		font-size: 1.2rem;
 	}
 	
-		/* Parte 1.17. da PRIMEIRA especificacao */
+		/* Parte 1.17. da PRIMEIRA especificação */
 	
 	a{
 		text-decoration: none;
@@ -55,7 +55,7 @@
 		padding: 5 px;
 	}
 	
-		/* Parte 1.16. da PRIMEIRA especificacao */
+		/* Parte 1.16. da PRIMEIRA especificação */
 	div {
 		display: flex;
 		justify-content: center;
