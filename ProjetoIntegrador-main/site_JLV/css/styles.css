@@ -76,17 +76,14 @@
 		margin-left: auto;
 		margin-right: auto; 
 		text-align: center;
+		color:white;
 	}
-	
-	h6 {
-		font-family: 'Merriweather', serif;
-		text-align: justify;
-	}
-	
+		
 	p {
 		width: 700px; 
 		margin-left: auto;
 		margin-right: auto;
+		text-align: center;
 	}
 	
 	img.pintura1 {
