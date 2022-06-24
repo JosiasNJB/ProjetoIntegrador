@@ -9,9 +9,9 @@
 		<link rel="stylesheet" type="text/css" href="css/styles.css">
 
 		<?php
+			session_start();
 
 			require 'conexao.php';
-			session_start();
 
 			if (isset($_REQUEST['btn_login'])){
 
@@ -36,7 +36,7 @@
 					else{
 
 						//Query de sql como uma string
-						$sql = "SELECT email, senha from user where email = '$email' and senha = '$senha' ";
+						$sql = "SELECT id_user, email, senha from user where email = '$email' and senha = '$senha' ";
 						
 						/* Está retornando, de dentro da tabela representada pela variável "$connect",
 						um array que contém todos os resultados que atendem aos requisitos da consulta
@@ -52,12 +52,16 @@
 						então ele salva um boolean que diz que o usuário está logado
 						e salva o id do usuário.
 						*/
+					
 						if (mysqli_num_rows($resultado) > 0){
 							$dados = mysqli_fetch_array($resultado);
 							$_SESSION['logado'] = true;
-							$_SESSION['id_usuario'] = $dados['id'];
+							$_SESSION['idu'] = $dados['id_user'];
+							
+							echo $_SESSION['idu'];
 
-							header('Location: index.php');
+
+							//header('Location: index.php');
 						}
 
 						else{
@@ -77,6 +81,7 @@
 
 		<section>
 
+			<br>
 			<h3>Página de Login</h3>
 
 			<!-- a tag <form> possibilita o uso de formularios -->
@@ -95,13 +100,6 @@
 					<div class="input-field col s12">
 						<input id="senha" type="password" name="senha" class="validate">
 						<label for="textarea1">Senha</label>
-					</div>
-				</div>
-
-				<div class="row">
-					<div class="input-field col s12">
-						<input id="nome" type="text" name="nome" class="validate">
-						<label for="textarea1">Apelido:</label>
 					</div>
 				</div>
 
