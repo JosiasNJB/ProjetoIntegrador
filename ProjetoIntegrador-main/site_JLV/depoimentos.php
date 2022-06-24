@@ -15,7 +15,8 @@
 		
 		<!-- A tag <section> para marcar as seções de conteúdo de uma página.-->
 		<section>
-			<h1>Depoimentos</h1>
+			<br>
+			<h3>Depoimentos</h3>
 
 			<!-- Resumidamente, tag <form> possibilita que trabalhemos com formulários.-->
 				
