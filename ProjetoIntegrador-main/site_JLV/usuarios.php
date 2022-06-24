@@ -29,8 +29,7 @@
                         <?php
 
                         require 'conexao.php';
-
-
+                    
                         $sql="SELECT * FROM user";
 
                         $resultado= mysqli_query($connect,$sql);
