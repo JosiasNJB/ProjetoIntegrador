@@ -8,10 +8,8 @@
 
 		<?php
 
-			//Start session/incluindo "conexao.php"
-			session_start();
 			require 'conexao.php';
-
+			
 			//Isset determina que os campos do formulario nao sao nulos.
 			if(isset($_REQUEST['btn_Send'])){
 
@@ -43,6 +41,8 @@
 
 		<?php include_once 'header.php';?>
 
+
+		<br>
         <h3>Cadastro</h3>
 
         <section>
