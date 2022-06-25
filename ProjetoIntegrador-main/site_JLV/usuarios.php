@@ -11,9 +11,11 @@
     <body>
         <?php include_once 'header.php';?>
 
-        <br>
+        <br><br>
 
         <h3 class="light"> Usuários </h3>
+
+        <br><br>
 
         <div class="row">
             <div>
@@ -41,18 +43,15 @@
                         
                         if (mysqli_num_rows($resultado)>0){
                             while($dados =mysqli_fetch_array($resultado)){
-                                $_SESSION['id2'] = $dados['id_user'];
-
-                                 
-                                
+          
                             ?>
                         <tr>
                             <td><?php echo $dados['nome'];?></td>
                             <td><?php echo $dados['email'];?></td>
                             <td><?php echo $dados['etnia'];?></td>
-                            <td><a class='btn waves-effect waves-light' href="delete.php"> Delete</td>
-                            <!--update not working keeps getting wrong id maybe while error idk-->
-                            <td><a class='btn waves-effect waves-light' href="update.php?id=<?php echo $dados['id_user'];?>"> Update</td>
+                            <td><a class="btn btn-danger" href="delete.php?id=<?php echo $dados['id_user'];?>"> Delete</td>
+
+                            <td><a class="btn btn-success" href="update.php?id=<?php echo $dados['id_user'];?>"> Update</td>
                         </tr>
 
                         
@@ -77,8 +76,8 @@
                 </table>                    
             </div>                     
         </div>
+        <br><br><br><br>
 
         <?php include_once 'footer.php';?>                        
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     </body>
 </html>
