@@ -6,9 +6,12 @@
 
     include 'conexao.php';
 
-    $req = $_SESSION['id2'];
+    if(isset($_REQUEST['id'])){
+        $_SESSION['id2'] = $_REQUEST['id'];
 
-    echo $req;
+    }
+
+    $req = $_SESSION['id2'];
 
     $sql = "DELETE FROM user WHERE id_user = $req";
 
