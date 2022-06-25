@@ -5,7 +5,6 @@
 		<meta charset="utf-8">
 		<title>Página de login</title>
 		<link rel="icon" type ="image/x-icon" href="img/favicon.ico">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 		<link rel="stylesheet" type="text/css" href="css/styles.css">
 
 		<?php
@@ -57,11 +56,9 @@
 							$dados = mysqli_fetch_array($resultado);
 							$_SESSION['logado'] = true;
 							$_SESSION['idu'] = $dados['id_user'];
-							
-							echo $_SESSION['idu'];
 
 
-							//header('Location: index.php');
+							header('Location: index.php');
 						}
 
 						else{
@@ -83,8 +80,9 @@
 
 			<br>
 			<h3>Página de Login</h3>
-
+			<br>
 			<!-- a tag <form> possibilita o uso de formularios -->
+
 			<form class="col s12" method="get">
 
 				<!-- <div> é a tag usada para dividir e organizar o documento -->
@@ -105,13 +103,15 @@
 
 				<br>
 
-				<div>
-					<button class="btn waves-effect waves-light" type="submit" name="btn_login">Enviar</button>
+				<div class="btnSubmit">
+					<button type="submit" class="btn btn-outline-success" name="btn_login"> Enviar </button>
 				</div>
 				
 				<br>
 
 			</form>
+			
+
 		</section>
 
 		<br>
