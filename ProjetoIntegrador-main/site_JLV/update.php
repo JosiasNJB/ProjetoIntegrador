@@ -14,6 +14,11 @@
 
 			require 'conexao.php';
 			
+            if(isset($_REQUEST['id'])){
+                $_SESSION['id2'] = $_REQUEST['id'];
+
+            }
+
 			//Isset determina que os campos do formulario nao sao nulos.
 			if(isset($_REQUEST['btn_Send'])){
 
@@ -22,9 +27,7 @@
 				$email=mysqli_escape_string($connect, $_REQUEST['email']);
 				$senha=md5(mysqli_escape_string($connect, $_REQUEST['senha']));
 				$etnia=$_REQUEST['etnia'];
-                $id2 = $_REQUEST['id'];
-
-                echo $id2;
+                $id2 = $_SESSION['id2'];
 
 
 				//Sql query para inserir os valores obtidos na tabela
@@ -36,10 +39,10 @@
 				e se o insert for devidamente realizado header direciona o usuario para a pagina de login.
 				*/ 
 				if (mysqli_query($connect, $sql)){
-					//header('usuarios.php');
+					header('location: usuarios.php');
 				}
 				else{
-					//header('update.php');
+					header('location: update.php');
 				}
 			}
 
@@ -49,13 +52,13 @@
     <body>
 
         <?php include_once 'header.php';?>
-
+        
 		<br>
         <h3>Update</h3>
 
         <section>
 			<!-- a tag <form> possibilita o uso de formularios -->
-			<form class="col s12" method="get">
+			<form class="col s12" method="get" >
 
 				<!-- <div> é a tag usada para dividir e organizar o documento -->
 				<div class="row">

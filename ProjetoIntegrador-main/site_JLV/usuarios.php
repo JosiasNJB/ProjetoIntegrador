@@ -51,8 +51,8 @@
                             <td><?php echo $dados['email'];?></td>
                             <td><?php echo $dados['etnia'];?></td>
                             <td><a class='btn waves-effect waves-light' href="delete.php"> Delete</td>
-                            // update not working keeps getting wrong id maybe while error idk
-                            <td><a class='btn waves-effect waves-light' href="update.php?id=<?php echo $dados['id'];?>"> Update</td>
+                            <!--update not working keeps getting wrong id maybe while error idk-->
+                            <td><a class='btn waves-effect waves-light' href="update.php?id=<?php echo $dados['id_user'];?>"> Update</td>
                         </tr>
 
                         
