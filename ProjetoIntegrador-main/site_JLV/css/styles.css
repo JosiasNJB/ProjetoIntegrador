@@ -6,14 +6,14 @@
 	color: white;
 	}
 	
-	footer {background-color: #008080;
+	footer {background-color: #358873;
 		min-height: 50px;
 		margin-top: auto;
 	}
 	
 		/* Parte 1.14. da PRIMEIRA especificação */
 	
-	header {background-color:  #a3c4a1;
+	header {background-color:  #097969;
 	
 		display:flex;
 		justify-content: space-between;
@@ -72,6 +72,7 @@
 	}
 	
 	h3 {
+		font-family: 'Merriweather', serif;
 		width: 700px; 
 		margin-left: auto;
 		margin-right: auto; 
@@ -122,4 +123,17 @@
 	table {
 		margin-left: auto;
 		margin-right: auto;
+	}
+
+	.btnSubmit{
+		text-align: center;
+	}
+
+	#dropdownMenuButton1{
+		background-color: #097969;
+	}
+
+	#treeimg{
+		max-width: 30px;
+		max-height: 30px;
 	}
