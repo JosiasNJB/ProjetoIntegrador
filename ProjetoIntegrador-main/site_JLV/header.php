@@ -14,7 +14,7 @@
 		}
 		require 'conexao.php';
 
-		if($_SESSION['logado'] == 1){
+		if($_SESSION['logado'] == true){
 
 			$id = $_SESSION['idu'];
 
@@ -28,10 +28,12 @@
 
 		}
 		else{
-			echo "teste";
+			$nome = "";
 		}
 		
 	?>
+
+	<!--<title> <?php //echo $nome; ?> </title>
 </head>
 <body>
 

@@ -15,19 +15,18 @@
 
 				//Criando e atribuindo às respectivas variaveis os valores inseridos nos campos do formulario.
 				$nome=mysqli_escape_string($connect, $_REQUEST['nome']);
-				$sobrenome=mysqli_escape_string($connect, $_REQUEST['sobrenome']);
 				$email=mysqli_escape_string($connect, $_REQUEST['email']);
 				$senha=md5(mysqli_escape_string($connect, $_REQUEST['senha']));
 				$etnia=$_REQUEST['etnia'];
 
 				//Sql query para inserir os valores obtidos na tabela
-				$sql="INSERT INTO user(nome, sobrenome, email, senha, etnia) VALUES('$nome', '$sobrenome', '$email', '$senha', '$etnia');";
+				$sql="INSERT INTO user(nome, email, senha, etnia) VALUES('$nome', '$email', '$senha', '$etnia');";
 				
 				/*Msqli_query aplica a string "$sql"
 				e se o insert for devidamente realizado header direciona o usuario para a pagina de login.
 				*/ 
 				if (mysqli_query($connect, $sql)){
-					header('login.php');
+					header('index.php');
 				}
 				else{
 					header('cadastro.php');

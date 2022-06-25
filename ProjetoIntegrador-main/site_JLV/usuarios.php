@@ -11,6 +11,8 @@
     <body>
         <?php include_once 'header.php';?>
 
+        <br>
+
         <h3 class="light"> Usuários </h3>
 
         <div class="row">
@@ -19,14 +21,17 @@
                     <thead>
                         <tr>
                             <th>Nome: </th>
-                            <th>Sobrenome: </th>
                             <th>Email: </th>
-                            <th>Etnia: </th>                                                     
+                            <th>Etnia: </th>                                                   
                         </tr>
                     </thead>
                     
                     <tbody>
                         <?php
+
+                        if (session_status() === PHP_SESSION_NONE) {
+                            session_start();
+                        }
 
                         require 'conexao.php';
                     
@@ -36,14 +41,21 @@
                         
                         if (mysqli_num_rows($resultado)>0){
                             while($dados =mysqli_fetch_array($resultado)){
+                                $_SESSION['id2'] = $dados['id_user'];
+
+                                 
+                                
                             ?>
                         <tr>
                             <td><?php echo $dados['nome'];?></td>
-                            <td><?php echo $dados['sobrenome'];?></td>
                             <td><?php echo $dados['email'];?></td>
                             <td><?php echo $dados['etnia'];?></td>
-
+                            <td><a class='btn waves-effect waves-light' href="delete.php"> Delete</td>
+                            // update not working keeps getting wrong id maybe while error idk
+                            <td><a class='btn waves-effect waves-light' href="update.php?id=<?php echo $dados['id'];?>"> Update</td>
                         </tr>
+
+                        
 
                         <?php
                                 }
