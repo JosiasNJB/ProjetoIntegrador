@@ -127,7 +127,7 @@
 				<br>
 
 				<div>
-					<button class="btn waves-effect waves-light" type="submit" name="btn_Send">Enviar</button>
+					<button class="btn btn-outline-success" type="submit" name="btn_Send">Enviar</button>
 				</div>
 
 				<br>
