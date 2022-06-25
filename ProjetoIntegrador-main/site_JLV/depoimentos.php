@@ -7,6 +7,28 @@
 		<link rel="icon" type ="image/x-icon" href="img/favicon.ico">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 		<link rel="stylesheet" type="text/css" href="css/styles.css">
+
+		<?php
+
+			require 'conexao.php';
+
+			if(isset($_REQUEST['btn_D'])){
+
+				$tema = mysqli_escape_string($connect, $_REQUEST['tema']);
+				$grupo = mysqli_escape_string($connect, $_REQUEST['grupo']);
+				$dep = mysqli_escape_string($connect, $_REQUEST['dep']);
+				
+				$sql = "INSERT INTO depoimentos(tema, grupo, dep) VALUES('$tema', '$grupo', '$dep');";
+
+				if (mysqli_query($connect, $sql)){
+					header('location: index.php');
+				}
+				else{
+					header('location: depoimentos.php');
+				}
+			}
+
+		?>
 	</head>
 	
 	<body>
@@ -24,28 +46,27 @@
 				<div class="row">
 					
 					<div class="input-field col s6">
-						<input id="nome" type="text" class="validate">
-						<label for="nome">Tema:</label>
+						<input id="tema" type="text" class="validate" name="tema">
+						<label for="tema">Tema:</label>
 					</div>
 
 					<div class="input-field col s6">
-						<input id="sobrenome" type="text" class="validate">
-						<label for="sobrenome">Grupo a que pertence:</label>
+						<input id="grupo" type="text" class="validate" name="grupo">
+						<label for="grupo">Grupo a que pertence:</label>
 					</div>
 
 				</div>
 
 				<div class="input-field col s12">
-					<textarea id="textarea1" class="materialize-textarea"></textarea>
+					<textarea id="textarea1" class="materialize-textarea" name="dep"></textarea>
 					<label for="textarea1">Seu Depoimento:</label>
 			    </div>
 
 				<br>
 				<br>
 
-				<div>
-					<button class="btn waves-effect waves-light" type="submit" 
-					name="action">Enviar<i class="material-icons right"></i></button>
+				<div class="btnSubmit">
+					<button type="submit" class="btn btn-outline-success" name="btn_D"> Enviar </button>
 				</div>
 
 				<br>
