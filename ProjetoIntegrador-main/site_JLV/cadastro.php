@@ -14,9 +14,11 @@
 			if(isset($_REQUEST['btn_Send'])){
 
 				//Criando e atribuindo às respectivas variaveis os valores inseridos nos campos do formulario.
-				$nome=mysqli_escape_string($connect, $_REQUEST['nome']);
-				$email=mysqli_escape_string($connect, $_REQUEST['email']);
-				$senha=md5(mysqli_escape_string($connect, $_REQUEST['senha']));
+				$nome=$_REQUEST['nome'];
+				$nome=filter_var($nome, FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH);
+				$email=$_REQUEST['email'];
+				//criptografando a senha
+				$senha=md5($_REQUEST['senha']);
 				$etnia=$_REQUEST['etnia'];
 
 				//Sql query para inserir os valores obtidos na tabela
@@ -26,10 +28,10 @@
 				e se o insert for devidamente realizado header direciona o usuario para a pagina de login.
 				*/ 
 				if (mysqli_query($connect, $sql)){
-					header('index.php');
+					header('location: index.php');
 				}
 				else{
-					header('cadastro.php');
+					header('location: cadastro.php');
 				}
 			}
 
@@ -114,8 +116,8 @@
 
 				<br>
 
-				<div>
-					<button class="btn waves-effect waves-light" type="submit" name="btn_Send">Enviar</button>
+				<div class="btnSubmit">
+					<button class="btn btn-outline-success" type="submit" name="btn_Send">Enviar</button>
 				</div>
 
 				<br>
