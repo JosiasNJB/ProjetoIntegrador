@@ -3,9 +3,7 @@
 		
 	<head>
 		<meta charset="utf-8">
-		<title>Sobre</title>
 		<link rel="icon" type ="image/x-icon" href="img/favicon.ico">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 		<link rel="stylesheet" type="text/css" href="css/styles.css">
 	</head>
 	
@@ -36,7 +34,7 @@
 
 		<h3>Nós</h3>
 		<p>Alunos do Instituto Federal do Espiríto Santo <br>
-			<br>
+		<br>
 		A equipe é formada basicamente por 3 alunos e 2 professores do IFES. 
 		
 		<br>
@@ -70,11 +68,6 @@
 		<p>
 			"A anarquia ostenta duas faces. A de Destruidores e a de Criadores. 
 			Os Destruidores derrubam impérios, e com os destroços, os Criadores erguem Mundos Melhores."
-		<!--
-		<iframe width="700" height="400" src="https://www.youtube.com/embed/I8IahXqAb9o" 
-		title="YouTube video player" frameborder="0" 
-		allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-		-->
 		</p>
 
 		<br>

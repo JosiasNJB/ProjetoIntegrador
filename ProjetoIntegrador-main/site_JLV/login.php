@@ -3,7 +3,6 @@
 		
 	<head>
 		<meta charset="utf-8">
-		<title>Página de login</title>
 		<link rel="icon" type ="image/x-icon" href="img/favicon.ico">
 		<link rel="stylesheet" type="text/css" href="css/styles.css">
 
@@ -66,6 +65,7 @@
 						$dados = mysqli_fetch_array($resultado);
 						$_SESSION['logado'] = true;
 						$_SESSION['idu'] = $dados['id_user'];
+						header("location: index.php");
 
 					}
 

@@ -31,19 +31,23 @@
 
 			$onoff = "";
 
+			$title = $nome;
+
 		}
 		else{
 			$perfil = "";
 			$onoff = "<li><a href='login.php'>Login</a></li>";
+			$title = "Yby";
 		}
+		
 		
 	?>
 
-	<!--<title> <?php //echo $nome; ?> </title>
+	<title> <?php echo $title; ?></title>
+
 </head>
 <body>
 
-	<!- A tag <header> é o nosso cabeçalho, mas dessa vez aparecerá.-->
 	<header>
 
 		<!-- A tag <figure> serve para marcar diagramas, ilustrações, fotos, e fragmentos de código.-->

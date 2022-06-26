@@ -3,7 +3,6 @@
 		
 	<head>
 		<meta charset="utf-8">
-		<title>Yby</title>
 		<link rel="icon" type ="image/x-icon" href="img/favicon.ico">
 		<link rel="stylesheet" type="text/css" href="css/styles.css">
 
@@ -126,22 +125,26 @@
 			</form>
 			<p>
 				<h3>Fale Conosco!</h3>
+
 				<p>
 				Email: nomefalso@Brasil_TerraIndígena.com<br>
 				Telefone: +45 666666-666<br>
 				</p>
 
 			</p>
-<br>
+
+			<br>
+
 			<h3>Fale com o Campus Serra! </h3>
 			
-				<p>
-				Site official: https://serra.ifes.edu.br/
-				</p>
+			<p>
+			Site official: <a href="https://serra.ifes.edu.br/">https://serra.ifes.edu.br/</a>
 			</p>
+
 			<br>
 			<br>
-			<p>Encontre mais informações aqui: https://ifes.edu.br/noticias/2-uncategorised/19345-contatos-dos-neabi-no-ifes
+
+			<p>Encontre mais informações aqui: <a href="https://ifes.edu.br/noticias/2-uncategorised/19345-contatos-dos-neabi-no-ifes">https://ifes.edu.br/noticias/2-uncategorised/19345-contatos-dos-neabi-no-ifes<a></p>
 
 			<br>
 			<br>

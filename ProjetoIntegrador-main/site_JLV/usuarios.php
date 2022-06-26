@@ -2,9 +2,7 @@
 <hmtl>
     <head>
         <meta charset="utf-8">
-            <title>Yby</title>
             <link rel="icon" type ="image/x-icon" href="img/favicon.ico">
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
             <link rel="stylesheet" type="text/css" href="css/styles.css">
 
     </head>
