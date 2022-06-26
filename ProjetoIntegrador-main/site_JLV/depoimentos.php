@@ -14,18 +14,46 @@
 
 			if(isset($_REQUEST['btn_D'])){
 
-				$tema = mysqli_escape_string($connect, $_REQUEST['tema']);
-				$grupo = mysqli_escape_string($connect, $_REQUEST['grupo']);
-				$dep = mysqli_escape_string($connect, $_REQUEST['dep']);
-				
-				$sql = "INSERT INTO depoimentos(tema, grupo, dep) VALUES('$tema', '$grupo', '$dep');";
 
-				if (mysqli_query($connect, $sql)){
-					header('location: index.php');
+
+				$erros = array();
+
+				$tema=$_REQUEST['tema'];
+				$grupo=$_REQUEST['grupo'];
+				$dep = $_REQUEST['dep'];
+
+
+				if(empty($tema)){
+					$erros[] = "<li>O campo tema precisa ser preenchido</li>";
 				}
+
+				if(empty($grupo)){
+					$erros[] = "<li>O campo grupo precisa ser preenchido</li>";
+				}
+
+				if(empty($dep)){
+					$erros[] = "<li>O campo departamento precisa ser preenchido</li>";
+				}
+
+				if(!empty($erros)){
+
+					foreach($erros as $erro){
+						echo $erro;
+					}
+				}
+
 				else{
-					header('location: depoimentos.php');
+					$sql = "INSERT INTO depoimentos(tema, grupo, dep) VALUES('$tema', '$grupo', '$dep');";
+
+					if (mysqli_query($connect, $sql)){
+						header('location: index.php');
+					}
+					else{
+						header('location: depoimentos.php');
+					}
+				
 				}
+				
 			}
 
 		?>
@@ -37,8 +65,9 @@
 		
 		<!-- A tag <section> para marcar as seções de conteúdo de uma página.-->
 		<section>
-			<br>
+			<br><br>
 			<h3>Depoimentos</h3>
+			<br><br>
 
 			<!-- Resumidamente, tag <form> possibilita que trabalhemos com formulários.-->
 				

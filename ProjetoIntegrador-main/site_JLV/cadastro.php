@@ -10,28 +10,67 @@
 
 			require 'conexao.php';
 			
-			//Isset determina que os campos do formulario nao sao nulos.
 			if(isset($_REQUEST['btn_Send'])){
 
-				//Criando e atribuindo às respectivas variaveis os valores inseridos nos campos do formulario.
-				$nome=$_REQUEST['nome'];
-				$nome=filter_var($nome, FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH);
-				$email=$_REQUEST['email'];
-				//criptografando a senha
-				$senha=md5($_REQUEST['senha']);
-				$etnia=$_REQUEST['etnia'];
+				$erros = array();
 
-				//Sql query para inserir os valores obtidos na tabela
-				$sql="INSERT INTO user(nome, email, senha, etnia) VALUES('$nome', '$email', '$senha', '$etnia');";
-				
-				/*Msqli_query aplica a string "$sql"
-				e se o insert for devidamente realizado header direciona o usuario para a pagina de login.
-				*/ 
-				if (mysqli_query($connect, $sql)){
-					header('location: index.php');
+				$nome=$_REQUEST['nome'];
+				$email=$_REQUEST['email'];
+				$senha = $_REQUEST['senha'];
+
+
+				if(empty($nome)){
+					$erros[] = "<li>O campo nome precisa ser preenchido</li>";
+				}
+
+				if(empty($email)){
+					$erros[] = "<li>O campo email precisa ser preenchido</li>";
 				}
 				else{
-					header('location: cadastro.php');
+					if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+						$erros[] = "<li>O campo email precisa ser preenchido corretamente</li>";
+					}
+				}
+
+				if(empty($senha)){
+					$erros[] = "<li>O campo senha precisa ser preenchido</li>";
+				}
+
+				if(isset($_REQUEST['etnia'])){
+					$etnia = $_REQUEST['etnia'];
+				}
+				else{
+					$erros[] = "<li>O campo etnia precisa ser preenchido</li>";
+				}
+
+				
+
+				if(!empty($erros)){
+
+					foreach($erros as $erro){
+						echo $erro;
+					}
+				}
+
+				else{
+					$nome=filter_var($nome, FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH);
+				
+					//criptografando a senha
+					$senha=md5($senha);
+					
+
+					//Sql query para inserir os valores obtidos na tabela
+					$sql="INSERT INTO user(nome, email, senha, etnia) VALUES('$nome', '$email', '$senha', '$etnia');";
+					
+					/*Msqli_query aplica a string "$sql"
+					e se o insert for devidamente realizado header direciona o usuario para a pagina de login.
+					*/ 
+					if (mysqli_query($connect, $sql)){
+						header('location: index.php');
+					}
+					else{
+						header('location: cadastro.php');
+					}
 				}
 			}
 
@@ -43,8 +82,9 @@
 		<?php include_once 'header.php';?>
 
 
-		<br>
+		<br><br>
         <h3>Cadastro</h3>
+		<br><br>
 
         <section>
 			<!-- a tag <form> possibilita o uso de formularios -->
@@ -59,7 +99,7 @@
 					</div>
 
 					<div class="input-field col s6">
-						<input id="email" type="email" class="validate" name="email">
+						<input id="email" type="text" class="validate" name="email">
 						<label for="email">E-Mail</label>
 					</div>
 				</div>

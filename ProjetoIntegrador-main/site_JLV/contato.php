@@ -13,19 +13,60 @@
 
 			if(isset($_REQUEST['btn_C'])){
 
-				$nome = mysqli_escape_string($connect, $_REQUEST['nome']);
-				$snome = mysqli_escape_string($connect, $_REQUEST['snome']);
-				$email = mysqli_escape_string($connect, $_REQUEST['email']);
-				$tel = FILTER_SANITIZE_NUMBER_INT($connect, $_REQUEST['tel']);
-				$msg = mysqli_escape_string($connect, $_REQUEST['msg']);
 
-				$sql = "INSERT 	INTO contato(nome, sobrenome, email, telefone, mensagem) VALUES('$nome', '$snome', '$email', '$tel', '$msg');";
+				$erros = array();
 
-				if (mysqli_query($connect, $sql)){
-					header('location: index.php');
+				$nome=$_REQUEST['nome'];
+				$snome=$_REQUEST['snome'];
+				$email=$_REQUEST['email'];
+				$tel=$_REQUEST['tel'];
+				$msg=$_REQUEST['msg'];
+
+
+
+				if(empty($nome)){
+					$erros[] = "<li>O campo nome precisa ser preenchido</li>";
+				}
+
+				if(empty($email)){
+					$erros[] = "<li>O campo email precisa ser preenchido</li>";
 				}
 				else{
-					header('location: contato.php');
+					if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+						$erros[] = "<li>O campo email precisa ser preenchido corretamente</li>";
+					}
+				}
+
+				if(empty($snome)){
+					$erros[] = "<li>O campo sobrenome precisa ser preenchido</li>";
+				}
+
+				if(empty($tel)){
+					$erros[] = "<li>O campo telefone precisa ser preenchido</li>";
+				}
+
+				if(empty($msg)){
+					$erros[] = "<li>O campo mensagem precisa ser preenchido</li>";
+				}
+
+				if(!empty($erros)){
+
+					foreach($erros as $erro){
+						echo $erro;
+					}
+				}
+
+				else{
+
+					$sql = "INSERT 	INTO contato(nome, sobrenome, email, telefone, mensagem) VALUES('$nome', '$snome', '$email', '$tel', '$msg');";
+
+					if (mysqli_query($connect, $sql)){
+						header('location: index.php');
+					}
+					else{
+						header('location: contato.php');
+					}
+
 				}
 			}
 

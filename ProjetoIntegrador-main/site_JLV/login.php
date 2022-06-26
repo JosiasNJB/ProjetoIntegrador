@@ -7,69 +7,82 @@
 		<link rel="icon" type ="image/x-icon" href="img/favicon.ico">
 		<link rel="stylesheet" type="text/css" href="css/styles.css">
 
+		
 		<?php
-			session_start();
+			if (session_status() === PHP_SESSION_NONE) {
+				session_start();
+			}
 
 			require 'conexao.php';
 
+			//isset determina que o botao foi ativado.
 			if (isset($_REQUEST['btn_login'])){
 
 				$erros = array();
 
-				//isset determina que os campos do formulario nao sao nulos	
-				if(isset($_REQUEST['email']) && isset($_REQUEST['senha'])){
+				$em = $_REQUEST['email'];
+				
+				$sen = $_REQUEST['senha'];
 
-					$em = $_REQUEST['email'];
-					$sen = $_REQUEST['senha'];
+				//colocando mensagens no array de erros
+				if(empty($em)){
+					$erros[] = "<li>O campo email precisa ser preenchido</li>";
+				}
+
+				if(empty($sen)){
+					$erros[] = "<li>O campo senha precisa ser preenchido</li>";
+				}
+
+				if(!empty($erros)){
+
+					foreach($erros as $erro){
+						echo $erro;
+					}
+				}
+
+				else{
 
 					//mysqli_escape_string - função que limpa os dados e evita sqlinjection e outros caracteres indevidos.
-					$email = mysqli_escape_string($connect, $em);
 					//Cryptografando a senha
 					$senha = md5(mysqli_escape_string($connect, $sen));
 
-					if(empty($email) or empty($senha)){
-						
-						$erros[] = "<li> O campo login/senha precisa ser preenchido </li>";
-					}
-
-					else{
-
-						//Query de sql como uma string
-						$sql = "SELECT id_user, email, senha from user where email = '$email' and senha = '$senha' ";
-						
-						/* Está retornando, de dentro da tabela representada pela variável "$connect",
-						um array que contém todos os resultados que atendem aos requisitos da consulta
-						dentro de "$sql".
-						*/
-						$resultado = mysqli_query($connect, $sql);
-
-						mysqli_close($connect);
-
-
-						/* Se o array que contém os resultados da consulta tiver pelo menos 1 index,
-						"$dados" irá buscar um array contendo os dados do index,
-						então ele salva um boolean que diz que o usuário está logado
-						e salva o id do usuário.
-						*/
+					//Query de sql como uma string
+					$sql = "SELECT id_user, email, senha from user where email = '$em' and senha = '$sen' ";
 					
-						if (mysqli_num_rows($resultado) > 0){
-							$dados = mysqli_fetch_array($resultado);
-							$_SESSION['logado'] = true;
-							$_SESSION['idu'] = $dados['id_user'];
+					/* Está retornando, de dentro da tabela representada pela variável "$connect",
+					um array que contém todos os resultados que atendem aos requisitos da consulta
+					dentro de "$sql".
+					*/
+					$resultado = mysqli_query($connect, $sql);
 
 
-							header('Location: index.php');
-						}
+					/* Se o array que contém os resultados da consulta tiver pelo menos 1 index,
+					"$dados" irá buscar um array contendo os dados do index,
+					então ele salva um boolean que diz que o usuário está logado
+					e salva o id do usuário.
+					*/
+					if (mysqli_num_rows($resultado) > 0){
+						
+						$dados = mysqli_fetch_array($resultado);
+						$_SESSION['logado'] = true;
+						$_SESSION['idu'] = $dados['id_user'];
+
+					}
 
 						else{
 							$erros[] = "<li>Usuário e senha não conferem.</li>";
+							foreach($erros as $erro){
+								echo $erro;
+							}
 						}
 					}
-				}
-			}	
+
+				}	
+
+					
 
 		?>
-		
+
 	</head>
 	
 	<body>
@@ -77,10 +90,10 @@
 		<?php include_once 'header.php';?>
 
 		<section>
-
-			<br>
+		
+			<br><br>
 			<h3>Página de Login</h3>
-			<br>
+			<br><br>
 			<!-- a tag <form> possibilita o uso de formularios -->
 
 			<form class="col s12" method="get">
@@ -124,19 +137,9 @@
 		<br>
 		<br>
 		<br>
-			<!-- onde está a tag footer? -->
-		<?php
-
-		if(!empty($error)){
-			foreach($error as $error){
-				echo $error;
-			}
-
-		}
-
-		?>
 
 		<?php include_once 'footer.php';?>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>	
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+		
 	</body>
 </html>
