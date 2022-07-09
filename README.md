@@ -1,4 +1,7 @@
-# Projeto Integrador
+<h1 align="center">
+<brProjeto Integrador
+</h1>
+
 >Quem Somos
 
 Yby
