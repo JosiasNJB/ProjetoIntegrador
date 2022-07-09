@@ -1,5 +1,5 @@
 <h1 align="center">
-<brProjeto Integrador
+<br>Projeto Integrador
 </h1>
 
   ------
