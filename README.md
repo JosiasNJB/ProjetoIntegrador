@@ -1,6 +1,5 @@
 <h1 align="center">
-  <img src="https://img.icons8.com/ios/50/000000/anonymous-mask.png"/>
-  
+<img src="https://img.icons8.com/ios-filled/50/000000/anonymous-mask.png"/>  
 <br>Projeto Integrador
 </h1>
 
