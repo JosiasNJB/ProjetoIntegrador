@@ -1,6 +1,5 @@
 <h1 align="center">
-  <img src="https://img.icons8.com/ios-filled/50/000000/anonymous-mask.png"/>
-<br>Projeto Integrador
+<a target="_blank" href="https://icons8.com/icon/37724/anonymous-mask">Anonymous Mask icon by Icons8</a><br>Projeto Integrador
 </h1>
 
   ------
