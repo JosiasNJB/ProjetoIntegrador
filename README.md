@@ -1,5 +1,5 @@
 # Projeto Integrador
-Quem Somos
+>Quem Somos
 
 Yby
 Yby significa "o chão que se pisa" na língua Tupi Guarani. Acreditamos que escolher um nome originário da nossa terra apresente um ato simbólico e potente.
