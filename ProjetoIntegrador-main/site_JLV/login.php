@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<hmtl>
-		
-	<head>
-		<meta charset="utf-8">
-		<link rel="icon" type ="image/x-icon" href="img/favicon.ico">
-		<link rel="stylesheet" type="text/css" href="css/styles.css">
 
-		
 		<?php
 			if (session_status() === PHP_SESSION_NONE) {
 				session_start();
@@ -15,13 +7,13 @@
 			require 'conexao.php';
 
 			//isset determina que o botao foi ativado.
-			if (isset($_REQUEST['btn_login'])){
+			if (isset($_POST['btn_login'])){
 
 				$erros = array();
 
-				$em = $_REQUEST['email'];
+				$em = $_POST['email'];
 				
-				$sen = $_REQUEST['senha'];
+				$sen = $_POST['senha'];
 
 				//colocando mensagens no array de erros
 				if(empty($em)){
@@ -46,7 +38,7 @@
 					$senha = md5(mysqli_escape_string($connect, $sen));
 
 					//Query de sql como uma string
-					$sql = "SELECT id_user, email, senha from user where email = '$em' and senha = '$sen' ";
+					$sql = "SELECT id_user, email, senha from user where email = '$em' and senha = '$senha' ";
 					
 					/* Está retornando, de dentro da tabela representada pela variável "$connect",
 					um array que contém todos os resultados que atendem aos requisitos da consulta
@@ -69,25 +61,19 @@
 
 					}
 
-						else{
-							$erros[] = "<li>Usuário e senha não conferem.</li>";
-							foreach($erros as $erro){
-								echo $erro;
-							}
+					else{
+						$erros[] = "<li>Usuário e senha não conferem.</li>";
+						foreach($erros as $erro){
+							echo $erro;
 						}
 					}
+				}
 
-				}	
-
-					
-
+			}
+				
+			include_once 'header.php';		
+				
 		?>
-
-	</head>
-	
-	<body>
-
-		<?php include_once 'header.php';?>
 
 		<section>
 		
@@ -96,7 +82,7 @@
 			<br><br>
 			<!-- a tag <form> possibilita o uso de formularios -->
 
-			<form class="col s12" method="get">
+			<form class="col s12" method="post">
 
 				<!-- <div> é a tag usada para dividir e organizar o documento -->
 				<div class="row">
@@ -117,7 +103,7 @@
 				<br>
 
 				<div class="btnSubmit">
-					<button type="submit" class="btn btn-outline-success" name="btn_login"> Enviar </button>
+				<button class="btn waves-effect waves-light" type="submit" name="btn_login"> Enviar</button>
 				</div>
 				
 				<br>
@@ -136,10 +122,13 @@
 
 		<br>
 		<br>
+
+		<div>
+			<a href="admcadastro.php"> Cadastro de administrador</a>
+		</div>
+
+		<br>
+		<br>
 		<br>
 
 		<?php include_once 'footer.php';?>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-		
-	</body>
-</html>

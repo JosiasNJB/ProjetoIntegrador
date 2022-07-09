@@ -13,23 +13,23 @@
 
 			require 'conexao.php';
 			
-            if(isset($_REQUEST['id'])){
-                $_SESSION['id2'] = $_REQUEST['id'];
+            if(isset($_GET['id'])){
+                $_SESSION['id2'] = $_GET['id'];
 
             }
 
 			//Isset determina que os campos do formulario nao sao nulos.
-			if(isset($_REQUEST['btn_Send'])){
+			if(isset($_POST['btn_Send'])){
 
 				$erros = array();
 
 				//Criando e atribuindo às respectivas variaveis os valores inseridos nos campos do formulario.
 				$id2 = $_SESSION['id2'];
-				$nome=$_REQUEST['nome'];
-				$email=$_REQUEST['email'];
-				$senha = $_REQUEST['senha'];
-				if(isset($_REQUEST['etnia'])){
-					$etnia = $_REQUEST['etnia'];
+				$nome=$_POST['nome'];
+				$email=$_POST['email'];
+				$senha = $_POST['senha'];
+				if(isset($_POST['etnia'])){
+					$etnia = $_POST['etnia'];
 				}
 
 				else{
@@ -87,16 +87,95 @@
 
     </head>
     <body>
+		<?php
 
-        <?php include_once 'header.php';?>
-        
+			if (session_status() === PHP_SESSION_NONE) {
+				session_start();
+			}
+
+			require 'conexao.php';
+
+			if(isset($_POST['id'])){
+				$_SESSION['id2'] = $_POST['id'];
+
+			}
+
+			//Isset determina que os campos do formulario nao sao nulos.
+			if(isset($_POST['btn_Send'])){
+
+				$erros = array();
+
+				//Criando e atribuindo às respectivas variaveis os valores inseridos nos campos do formulario.
+				$id2 = $_SESSION['id2'];
+				$nome=$_POST['nome'];
+				$email=$_POST['email'];
+				$senha = $_POST['senha'];
+				if(isset($_POST['etnia'])){
+					$etnia = $_POST['etnia'];
+				}
+
+				else{
+					$erros[] = "<li>O campo etnia precisa ser preenchido</li>";
+				}
+
+				if(empty($nome)){
+					$erros[] = "<li>O campo nome precisa ser preenchido</li>";
+				}
+
+				if(empty($email)){
+					$erros[] = "<li>O campo email precisa ser preenchido corretamente</li>";
+				}
+				else{
+					if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+						$erros[] = "<li>O campo email precisa ser preenchido corretamente</li>";
+					}
+				}
+
+				if(empty($senha)){
+					$erros[] = "<li>O campo senha precisa ser preenchido</li>";
+				}
+
+
+
+				if(!empty($erros)){
+
+					foreach($erros as $erro){
+						echo $erro;
+					}
+				}
+
+				else{
+
+					//Sql query para inserir os valores obtidos na tabela
+					$sql="UPDATE user set nome='$nome', email='$email', senha='$senha', etnia='$etnia' WHERE id_user = $id2 ;";
+
+					
+					
+					/*Msqli_query aplica a string "$sql"
+					e se o insert for devidamente realizado header direciona o usuario para a pagina de login.
+					*/ 
+					if (mysqli_query($connect, $sql)){
+						header('location: usuarios.php');
+					}
+					else{
+						header('location: update.php');
+					}
+				
+				}
+
+			}
+
+			include_once 'header.php';
+
+		?>
+
 		<br><br>
         <h3>Update</h3>
 		<br><br>
 
         <section>
 			<!-- a tag <form> possibilita o uso de formularios -->
-			<form class="col s12" method="get" >
+			<form class="col s12" method="post" >
 
 				<!-- <div> é a tag usada para dividir e organizar o documento -->
 				<div class="row">
@@ -164,8 +243,8 @@
 
 				<br>
 
-				<div>
-					<button class="btn btn-outline-success" type="submit" name="btn_Send">Enviar</button>
+				<div class="btnSubmit">
+				<button class="btn waves-effect waves-light" type="submit" name="btn_Send"> Enviar</button>
 				</div>
 
 				<br>

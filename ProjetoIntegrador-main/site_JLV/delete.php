@@ -6,8 +6,8 @@
 
     include 'conexao.php';
 
-    if(isset($_REQUEST['id'])){
-        $_SESSION['id2'] = $_REQUEST['id'];
+    if(isset($_GET['id'])){
+        $_SESSION['id2'] = $_GET['id'];
 
     }
 

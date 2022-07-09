@@ -1,24 +1,17 @@
-<!DOCTYPE html>
-<hmtl>
-		
-	<head>
-		<meta charset="utf-8">
-		<link rel="icon" type ="image/x-icon" href="img/favicon.ico">
-		<link rel="stylesheet" type="text/css" href="css/styles.css">
 
 		<?php
 
 			require 'conexao.php';
 
-			if(isset($_REQUEST['btn_D'])){
+			if(isset($_POST['btn_D'])){
 
 
 
 				$erros = array();
 
-				$tema=$_REQUEST['tema'];
-				$grupo=$_REQUEST['grupo'];
-				$dep = $_REQUEST['dep'];
+				$tema=$_POST['tema'];
+				$grupo=$_POST['grupo'];
+				$dep=$_POST['dep'];
 
 
 				if(empty($tema)){
@@ -54,12 +47,9 @@
 				
 			}
 
-		?>
-	</head>
-	
-	<body>
+			include_once 'header.php';
 
-		<?php include_once 'header.php';?>
+		?>	
 		
 		<!-- A tag <section> para marcar as seções de conteúdo de uma página.-->
 		<section>
@@ -69,7 +59,7 @@
 
 			<!-- Resumidamente, tag <form> possibilita que trabalhemos com formulários.-->
 				
-			<form>
+			<form method="post">
 				<div class="row">
 					
 					<div class="input-field col s6">
@@ -93,7 +83,7 @@
 				<br>
 
 				<div class="btnSubmit">
-					<button type="submit" class="btn btn-outline-success" name="btn_D"> Enviar </button>
+				<button class="btn waves-effect waves-light" type="submit" name="btn_D"> Enviar</button>
 				</div>
 
 				<br>
@@ -105,8 +95,4 @@
 
 		<br><br>
 
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
 		<?php include_once 'footer.php';?>	
-	</body>
-</html>

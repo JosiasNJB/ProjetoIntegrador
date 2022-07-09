@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<hmtl>
-    <head>
-        <meta charset="utf-8">
-            <link rel="icon" type ="image/x-icon" href="img/favicon.ico">
-            <link rel="stylesheet" type="text/css" href="css/styles.css">
 
-    </head>
-    <body>
         <?php include_once 'header.php';?>
 
         <br><br>
@@ -47,9 +39,9 @@
                             <td><?php echo $dados['nome'];?></td>
                             <td><?php echo $dados['email'];?></td>
                             <td><?php echo $dados['etnia'];?></td>
-                            <td><a class="btn btn-danger" href="delete.php?id=<?php echo $dados['id_user'];?>"> Delete</td>
+                            <td><a class="btn waves-effect waves-light red darken-4" href="delete.php?id=<?php echo $dados['id_user'];?>"> Delete</td>
 
-                            <td><a class="btn btn-success" href="update.php?id=<?php echo $dados['id_user'];?>"> Update</td>
+                            <td><a class="btn waves-effect waves-light green accent-4" href="update.php?id=<?php echo $dados['id_user'];?>"> Update</td>
                         </tr>
 
                         
@@ -77,5 +69,3 @@
         <br><br><br><br>
 
         <?php include_once 'footer.php';?>                        
-    </body>
-</html>

@@ -1,25 +1,18 @@
-<!DOCTYPE html>
-<hmtl>
-		
-	<head>
-		<meta charset="utf-8">
-		<link rel="icon" type ="image/x-icon" href="img/favicon.ico">
-		<link rel="stylesheet" type="text/css" href="css/styles.css">
 
 		<?php
 
 			require 'conexao.php';
 
-			if(isset($_REQUEST['btn_C'])){
+			if(isset($_POST['btn_C'])){
 
 
 				$erros = array();
 
-				$nome=$_REQUEST['nome'];
-				$snome=$_REQUEST['snome'];
-				$email=$_REQUEST['email'];
-				$tel=$_REQUEST['tel'];
-				$msg=$_REQUEST['msg'];
+				$nome=$_POST['nome'];
+				$snome=$_POST['snome'];
+				$email=$_POST['email'];
+				$tel=$_POST['tel'];
+				$msg=$_POST['msg'];
 
 
 
@@ -69,12 +62,9 @@
 				}
 			}
 
-		?>
-	</head>
-	
-	<body>
+			include_once 'header.php';
 
-		<?php include_once 'header.php';?>
+		?>
 		
 		<!-- A tag <section> para marcar as seções de conteúdo de uma página.-->
 		<section>
@@ -83,7 +73,7 @@
 		<h3>Contato</h3>
 		<br><br>
 			<!-- Resumidamente, tag <form> possibilita que trabalhemos com formulários.-->
-			<form>
+			<form method="post">
 				<div class="row">
 					
 					<div class="input-field col s6">
@@ -117,7 +107,7 @@
 				<br>
 
 				<div class="btnSubmit">
-					<button type="submit" class="btn btn-outline-success" name="btn_C"> Enviar </button>
+				<button class="btn waves-effect waves-light" type="submit" name="btn_C"> Enviar</button>
 				</div>
 
 				<br>
@@ -153,6 +143,3 @@
 		<br><br>
 
 		<?php include_once 'footer.php';?>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>	
-	</body>
-</html>

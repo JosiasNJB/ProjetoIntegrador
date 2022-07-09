@@ -1,21 +1,15 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <link rel="icon" type ="image/x-icon" href="img/favicon.ico">
-		<link rel="stylesheet" type="text/css" href="css/styles.css">
 
 		<?php
 
 			require 'conexao.php';
-			
-			if(isset($_REQUEST['btn_Send'])){
+
+			if(isset($_POST['btn_Send'])){
 
 				$erros = array();
 
-				$nome=$_REQUEST['nome'];
-				$email=$_REQUEST['email'];
-				$senha = $_REQUEST['senha'];
+				$nome=$_POST['nome'];
+				$email=$_POST['email'];
+				$senha = $_POST['senha'];
 
 
 				if(empty($nome)){
@@ -35,8 +29,8 @@
 					$erros[] = "<li>O campo senha precisa ser preenchido</li>";
 				}
 
-				if(isset($_REQUEST['etnia'])){
-					$etnia = $_REQUEST['etnia'];
+				if(isset($_POST['etnia'])){
+					$etnia = $_POST['etnia'];
 				}
 				else{
 					$erros[] = "<li>O campo etnia precisa ser preenchido</li>";
@@ -73,13 +67,9 @@
 				}
 			}
 
-		?>
+			include_once 'header.php';
 
-    </head>
-    <body>
-
-		<?php include_once 'header.php';?>
-
+		?>	
 
 		<br><br>
         <h3>Cadastro</h3>
@@ -87,7 +77,7 @@
 
         <section>
 			<!-- a tag <form> possibilita o uso de formularios -->
-			<form class="col s12" method="get">
+			<form class="col s12" method="post">
 
 				<!-- <div> é a tag usada para dividir e organizar o documento -->
 				<div class="row">
@@ -156,7 +146,8 @@
 				<br>
 
 				<div class="btnSubmit">
-					<button class="btn btn-outline-success" type="submit" name="btn_Send">Enviar</button>
+				<button class="btn waves-effect waves-light teal darken-2" type="submit" name="btn_Send"> Enviar
+  				</button>
 				</div>
 
 				<br>
@@ -167,6 +158,3 @@
 		</section>
 
 		<?php include_once 'footer.php';?>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    </body>
-</html>

@@ -1,13 +1,3 @@
-<!DOCTYPE html>
-<hmtl>
-		
-	<head>
-		<meta charset="utf-8">
-		<link rel="icon" type ="image/x-icon" href="img/favicon.ico">
-		<link rel="stylesheet" type="text/css" href="css/styles.css">
-	</head>
-	
-	<body>
 
 		<?php include_once 'header.php';?>
 		<br>
@@ -76,6 +66,3 @@
 		</section>
 
 		<?php include_once 'footer.php';?>
-			
-	</body>
-</html>

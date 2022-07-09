@@ -1,71 +1,94 @@
 <!DOCTYPE html>
 <html>
-<head>
- 	<link rel="stylesheet" href="css/styles.css">
-	<meta charset="utf-8">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"></link>
-	<link rel="stylesheet" type="text/css" href="css/styles.css">
+	<!-- A tag <head> tem o papel de definir o cabeçalho do documento com informações que não serão exibidas dentro do conteúdo da página.-->
+	<head>
+		<link rel="stylesheet" href="css/styles.css">
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+		<script type = "text/javascript" src = "https://code.jquery.com/jquery-2.1.1.min.js"></script>
+		<link rel="icon" type ="image/x-icon" href="img/favicon.ico">
+		<link rel="stylesheet" type="text/css" href="css/styles.css">
 
-	<?php
+		<?php
 
-		//Start session/incluindo "conexao.php"
-		if (session_status() === PHP_SESSION_NONE) {
-			session_start();
-		}
-		require 'conexao.php';
-
-		if($_SESSION['logado'] == true){
-
-			$id = $_SESSION['idu'];
-
-			$sql = "SELECT nome from user where id_user = $id;";
-
-			$resultado = mysqli_query($connect, $sql);
-
-			$array = mysqli_fetch_array($resultado);
+			//Start session/incluindo "conexao.php"
+			if (session_status() === PHP_SESSION_NONE) {
+				session_start();
+			}
 			
-			$nome = $array[0];
+			require 'conexao.php';
 
-			$perfil = "<li><div class='colordropd'><div class='dropdown'> <button class='btn btn-secondary dropdown-toggle' type='button' id='dropdownMenuButton1' data-bs-toggle='dropdown' aria-expanded='false'>$nome </button> <ul class='dropdown-menu' aria-labelledby='dropdownMenuLink'><li><a class='dropdown-item' href='logout.php'>Log Out</a></li></ul></div><div></li>";
+			if(!isset($_SESSION['logado'])){
+				$_SESSION['logado'] = false;
+			}
 
-			$onoff = "";
+			$usuarios = "";
 
-			$title = $nome;
+			if($_SESSION['logado'] == true){
 
-		}
-		else{
-			$perfil = "";
-			$onoff = "<li><a href='login.php'>Login</a></li>";
-			$title = "Yby";
-		}
-		
-		
-	?>
+				$id = $_SESSION['idu'];
 
-	<title> <?php echo $title; ?></title>
+				$sql = "SELECT nome, adm from user where id_user = $id;";
+				
+				$resultado = mysqli_query($connect, $sql);
 
-</head>
-<body>
+				$array = mysqli_fetch_array($resultado);
+				
+				$nome = $array[0];
+				$adm = $array[1];
 
-	<header>
+				if($adm == '1'){
+					$usuarios = "<li><a href='usuarios.php'>Usuários</a></li>";
+					
+				}
+				else{
+					$usuarios = "";
+				}
 
-		<!-- A tag <figure> serve para marcar diagramas, ilustrações, fotos, e fragmentos de código.-->
-		<figure>
-			<a href="index.php"><img src="img/icon-forest-0.png" id="treeimg"alt="Yby"></a>
-			<td> Yby </td> 
-		</figure> 
+				$perfil = "<li> $nome </li>";
+				$logout = "<li><a href='logout.php'>Log out</a></li>";
+				$onoff = "";
+
+				$title = $nome;
+
+			}
+			else{
+				$perfil = "";
+				$logout = "";
+				$onoff = "<li><a href='login.php'>Login</a></li>";
+				$title = "Yby";
+			}
 			
-		<div class="menu">
+			
+		?>
 
-			<li><a href="index.php">Home</a></li>
-			<li><a href="sobre.php">Sobre</a></li>
-			<?php echo $onoff; ?>
-			<li><a href="contato.php">Contato</a></li>
-			<li><a href="depoimentos.php">Depoimentos</a></li>
-			<li><a href="usuarios.php">Usuários</a></li>
-			<?php echo $perfil ?>
-			
-		</div>
-			
-	</header>
+		<title> <?php echo $title; ?></title>
+
+	</head>
+
+	<!-- A tag <body> é basicamente o corpo do nosso documento.-->
+	<body>
+
+		<header>
+
+			<!-- A tag <figure> serve para marcar diagramas, ilustrações, fotos, e fragmentos de código.-->
+			<figure>
+				<a href="index.php"><img src="img/icon-forest-0.png" id="treeimg"alt="Yby"></a>
+				<td> Yby </td> 
+			</figure> 
+				
+			<div class="menu">
+
+				<li><a href="index.php">Home</a></li>
+				<li><a href="sobre.php">Sobre</a></li>
+				<?php echo $onoff; ?>
+				<li><a href="contato.php">Contato</a></li>
+				<li><a href="depoimentos.php">Depoimentos</a></li>
+				<?php echo $usuarios; ?>
+				<?php echo $logout; ?>
+				<?php echo $perfil; ?>
+				
+				
+			</div>
+				
+		</header>
