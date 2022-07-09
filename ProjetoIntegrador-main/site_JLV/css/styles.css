@@ -116,10 +116,6 @@
 		display: inline-block;
 	}
 
-	.carousel-inner {
-		background-color: black;
-	}
-
 	table {
 		margin-left: auto;
 		margin-right: auto;
@@ -136,4 +132,8 @@
 	#treeimg{
 		max-width: 30px;
 		max-height: 30px;
+	}
+
+	.footer{
+		text-align: center;
 	}
