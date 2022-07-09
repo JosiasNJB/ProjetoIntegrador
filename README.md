@@ -1,5 +1,5 @@
 <h1 align="center">
-<a target="_blank" href="https://icons8.com/icon/37724/anonymous-mask">Anonymous Mask icon by Icons8</a><br>Projeto Integrador
+<br> Projeto Integrador
 </h1>
 
   ------
